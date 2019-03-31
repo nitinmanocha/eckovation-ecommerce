@@ -1,5 +1,4 @@
 
-    <!-- navbar-->
     
     <header class="header">
 
@@ -18,13 +17,13 @@
         </div>
       </nav>
     </header>
-    <!-- End Navbar-->
+
     <div class="cart-page-holder">
-      <!-- Hero section-->
-      <section class="hero">
-        <div class="container">
+  
+      <section style="background-image:url('../assets/img/bg.jpg')">
+        <div class="container" style="color:#bd2130">
           <h1>Make an order</h1>
-          <h2>Click on any product to add it into cart</h2>
+          
         
         </div>
       </section>
@@ -61,20 +60,21 @@
 	<td>
     <img src="../assets/img/logo.png" alt="Apple Store" style="width:10%"> 
 	{{item.name}}</td>
-		<td>
-		<div *ngIf="selectedItem">
-	 
-		  <button class= "btn btn-success">Order Now</button>
-	  </div>
-	 
-		</td>
 	<td><h3>{{item.price}}</h3> </td>
 
 	
 	</tr>
 	
 	</table>
-	 <hr> 
+		<td>
+		<div >
+	 
+		  <a class= "btn btn-success" pageScroll href="#shipping-address-form" >Order Now</a>
+	  </div>
+	 
+		</td>
+	 <hr>
+	 
 				</div>                   
 				</div> 
 				   
@@ -94,9 +94,16 @@
               <div class="shipping-main">
                 <h3>Invoice Address</h3>
                 <div class="row">
-                  <div class="col-sm-6">
-                    <input type="text" name="firstname" placeholder="First Name" required="" class="form-control">
+                 
+				  <div class="col-sm-12">
+                    <input type="text" name="productname" disabled placeholder=" Selected Item Name: {{selectedItem.name}}" required="" class="form-control">
                   </div>
+				  <div class="col-sm-12">
+                    <input type="text" name="productprice" disabled placeholder="Selected Item Price: {{selectedItem.price}}" required="" class="form-control">
+                  </div>
+				   <div class="col-sm-6">
+                    <input type="text" name="firstname" placeholder="First Name" required="" class="form-control">
+                  </div> 
                   <div class="col-sm-6">
                     <input type="text" name="lastname" placeholder="Last Name" required="" class="form-control">
                   </div>
@@ -106,46 +113,26 @@
                   <div class="col-sm-6">
                     <input type="text" name="number" placeholder="Phone Number" required="" class="form-control">
                   </div>
-                  <div class="col-sm-8">
+                  <div class="col-sm-12">
                     <input type="text" name="address-1" placeholder="Address" required="" class="form-control">
                   </div>
-                  <div class="col-sm-4">
-                    <input type="text" name="address-2" placeholder="Apt, Suit, etc." required="" class="form-control">
-                  </div>
+             
                   <div class="col-sm-6">
                     <input type="text" name="city" placeholder="City" required="" class="form-control">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" name="postalcode" placeholder="Postal Code" required="" class="form-control">
                   </div>
-                  <div class="col-sm-6">
-                    <input type="text" name="region" placeholder="Region" required="" class="form-control">
-                  </div>
-                  <div class="col-sm-6">
-                    <select name="country" title="Country" required="" class="country selectpicker">
-                      <option value="">Afghanistan</option>
-                      <option value="AX">Åland Islands</option>
-                      <option value="AL">Albania</option>
-                      <option value="DZ">Algeria</option>
-                      <option value="AS">American Samoa</option>
-                      <option value="AD">Andorra</option>
-                      <option value="AO">Angola</option>
-                      <option value="AI">Anguilla</option>
-                      <option value="AQ">Antarctica</option>
-                      <option value="AG">Antigua and Barbuda</option>
-                      <option value="AR">Argentina</option>
-                      <option value="AM">Armenia</option>
-                      <option value="AW">Aruba</option>
-                      <option value="AU">Australia</option>
-                      <option value="AT">Austria</option>
-                      <option value="AZ">Azerbaijan</option>
-                      <option value="BS">Bahamas</option>
-                      <option value="BH">Bahrain</option>
-                    </select>
-                  </div>
+               
+            
                   <div class="col-sm-12">
-             <button id="shipping-submit" type="submit" class="oder-now btn btn-primary btn-template btn-lg">Order Now <i class="icon-shipping-truck"></i></button>       
+             <button id="shipping-submit" type="submit" class="oder-now btn btn-primary btn-template btn-lg" (click)="success($event, open)">Order Now <i class="icon-shipping-truck"></i></button>       
                   </div>
+				  <script>
+				  function success(){
+				  alert('Order Placed Successfully');
+						}
+						</script>
                 </div>
               </div>
              
@@ -157,9 +144,6 @@
  
  
  
- 
- 
-    <!-- Footer-->
     <footer>
       <div class="container">
         <div class="contact-details text-center">
@@ -190,8 +174,5 @@
       </div>
      
     </footer>
-    <!-- End Footer-->
-    <!-- Scroll to top button-->
+
     <div id="scrollTop"><i class="fa fa-angle-up"></i></div>
-    <!-- End scroll to top button-->
-   
