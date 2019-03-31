@@ -9,6 +9,7 @@ import { ItemsComponent } from './items/items.component';
 
 
 const ROUTES: Routes = [
+  {path:'',component:HomepageComponent},
 {path:'cart',component:CartComponent},
 {path:'homepage',component:HomepageComponent}
 
